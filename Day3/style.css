@@ -10,6 +10,11 @@ p,h3{
     color: white;
 }
 
+#caraousel-image{
+    width:;
+    max-height: 500px;
+}
+
 #section-about{
     background-image: url("img/bg-about.png");
     background-size: cover;
@@ -33,13 +38,14 @@ p,h3{
     border-radius: 20px;
 }
 
-#section-userEXP{
+/* #section-userEXP{
     background-color: transparent;
-}
+} */
 
 #section-reserve{
     background-image: url("img/Group\ 14.png");
     background-size: cover;
+    /* background-position-y: 100px; */
      background-attachment: fixed; 
 }
 
