@@ -61,22 +61,32 @@
     echo "<br>";
     echo "Luas lingkaran adalah ". $luas_lingkaran;
 
-    echo"<br>";
-    echo"<br>";
-    echo"<br>";
-    // IF ELSE
-    if ($a < $b) {
-        echo $a." lebih kecil dari ".$b;
-    } else {
-        echo $a. " lebih besar dari ".$b;
-    }
+    // Luas lingkaran
+    $keliling_lingkaran = 22/7* 2 * ($jariJari);
+    echo "<br>";
+    echo "Keliling lingkaran adalah ". $keliling_lingkaran;
 
     echo"<br>";
     echo"<br>";
     echo"<br>";
     echo "TUGAS ELSE IF";
-    if ($a < $b) {
-        
+    echo"<br>";
+    echo "Nilai = ".$nilai =90;
+    echo"<br>";
+    if ($nilai > 100){
+        echo "Input nilai antum melebihi 100 hey!";
+    } elseif ($nilai > 86 && $nilai <100) {
+        echo "Nilai antum A";
+    } elseif ($nilai > 76 && $nilai <85){
+        echo "Nilai antum B";
+    } elseif ($nilai > 51 && $nilai <75){
+        echo "Nilai antum C";
+    } elseif ($nilai > 31 && $nilai <50){
+        echo "Nilai antum D";
+    } elseif ($nilai >= 0 && $nilai <30){
+        echo "Nilai antum E";
+    } else {
+        echo "Antum salah input nilai Heyy";
     }
 
     echo"<br>";
@@ -87,6 +97,9 @@
     echo "Nilai = ".$nilai =110;
     echo"<br>";
     switch ($nilai) {
+        case ($nilai >100):
+          echo "input nilai antum kebanyakan hey";
+          break;
         case ($nilai > 86) && ($nilai <100):
           echo "Nilai antum A";
           break;
