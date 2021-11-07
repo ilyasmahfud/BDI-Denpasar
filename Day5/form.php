@@ -2,7 +2,7 @@
     $name = $_POST['name'];
     $nilai = $_POST['nilai'];
 
-    echo "Haloo $name ";
+    echo $name;
     echo "<br>";
     if ($nilai > 100){
         echo "Input nilai antum melebihi 100 hey!";

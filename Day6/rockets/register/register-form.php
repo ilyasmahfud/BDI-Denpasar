@@ -55,7 +55,7 @@
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+                <input name="email" value='<?php echo $email?>' type="email" class="form-control" id="email" aria-describedby="emailHelp" disabled>
                 <small id="emailHelp" class="form-text text-muted">Make sure your email never registered in here!</small>
             </div>
             <div class="form-group">

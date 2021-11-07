@@ -1,0 +1,54 @@
+body{
+    background-color: black;
+}
+
+img{
+    width: 100%;
+}
+
+p,h3{
+    color: white;
+}
+
+#caraousel-image{
+    
+    max-height: 500px;
+}
+
+#section-about{
+    background-image: url("img/bg-about.png");
+    background-size: cover;
+     background-attachment: local; 
+}
+
+#text-vision{
+    margin-top: 20px;
+    text-align: center;
+}
+
+#email{
+    border-radius: 7px;
+    border-style: none;
+    padding: 10px;
+    width: 300px;
+}
+
+#vision{
+    border: 5px solid white;
+    border-radius: 20px;
+}
+
+/* #section-userEXP{
+    background-color: transparent;
+} */
+
+#section-reserve{
+    background-image: url("img/Group\ 14.png");
+    background-size: cover;
+    /* background-position-y: 100px; */
+     background-attachment: fixed; 
+}
+
+#footer{
+    margin-top: 200px;
+}
