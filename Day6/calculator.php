@@ -13,9 +13,6 @@
 <body>
 
     <div class="container" style="margin-top: 50px" align="center">
-
-
-
         <form method="post" action="calculator.php">
             <input name="number1" type="text" class="form-control" style="width: 150px; display: inline" />
             <select name="operation">
@@ -30,14 +27,13 @@
 
         <div class="container">
             <?php
-    
             // If the submit button has been pressed
             if(isset($_POST['submit'])){
                 // Check number values
                 $number1 = $_POST['number1'];
                 $number2 = $_POST['number2'];
                 function operasiAritmatika($number1,$number2 ){
-                    if($number1 && $number2){
+                    if(is_numeric($number1) && is_numeric($number2)){
                         // Calculate total
                         if($_POST['operation'] == 'ditambah'){
                             $total = $number1 + $number2; 
@@ -60,9 +56,7 @@
                 operasiAritmatika($number1, $number2);
             }
             ?>
-
         </div>
-
     </div>
 
 </body>

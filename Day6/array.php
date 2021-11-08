@@ -112,6 +112,15 @@
 
     echo json_encode($data_negara);
 
+    // $provinsi = (object)[
+    //     'Nama' => 'Bali', 
+    //     'Ibukota' => 'Denpasar',
+    //     'Website' => 'https://www.baliprov.go.id/',
+    //     'Gubernur' => 'Wayan Koster',
+    //     'Wakil Gubernur' => 'Tjokorda Oka Artha Ardana Sukawati'
+    // ];
+    
+    
     // Tugas
     /*
         Mengakses data nomer 2
