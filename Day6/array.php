@@ -68,8 +68,10 @@
         array('Denpasar','-','I Gusti Ngurah Jaya Negara')
     );
 
+    $maks = count($kabupate_kota_di_Bali);
+
     echo "<h1>array untuk menyimpan data kota dan kabupaten di Bali</h1>";
-    for ($row = 0; $row < 9; $row++) {
+    for ($row = 0; $row < $maks; $row++) {
         for ($col = 0; $col < 1; $col++) {
             echo "<p><b>Kabupaten atau kota ".$kabupate_kota_di_Bali[$row][$col]."</b></li>";
             echo "<ul>";
