@@ -107,3 +107,8 @@ FROM pegawai
 JOIN jabatan 
 ON pegawai.id_jabatan = jabatan.id;
 ```
+<br>
+
+### Auto generate data
+
+[data dummy](www.mockaroo.com)
