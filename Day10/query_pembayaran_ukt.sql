@@ -12,7 +12,8 @@ CREATE TABLE `mahasiswa` (
   `NIM` char(10) PRIMARY KEY,
   `nama_mahasiswa` varchar(255),
   `jurusan` varchar(255),
-  `fakultas` varchar(255)
+  `fakultas` varchar(255),
+  `kelompok_kkn` varchar (10)
 );
 
 CREATE TABLE `KKN` (
@@ -24,11 +25,14 @@ ALTER TABLE `mahasiswa` ADD `kelompok_KKN` varchar(10);
 
 -- ANA, ANDI, BENTO, CLara, Erna
 
-INSERT INTO `mahasiswa` VALUE('M0118030','ANA', 'Matematika', 'FMIPA');
-INSERT INTO `mahasiswa` VALUE('M0218041','ANDI', 'Fisika', 'FMIPA');
-INSERT INTO `mahasiswa` VALUE('K0718059','BENTO', 'Teknik Sipil', 'FT');
-INSERT INTO `mahasiswa` VALUE('F0918013','CLARA', 'Pendidikan Olahraga', 'FKOR');
-INSERT INTO `mahasiswa` VALUE('H0118030','ERNA', 'Kedokteran', 'FK');
+INSERT INTO `mahasiswa` VALUE('M0118030','ANA', 'Matematika', 'FMIPA','101');
+INSERT INTO `mahasiswa` VALUE('M0218041','ANDI', 'Fisika', 'FMIPA','102');
+INSERT INTO `mahasiswa` VALUE('K0718059','BENTO', 'Teknik Sipil', 'FT','101');
+INSERT INTO `mahasiswa` VALUE('F0918013','CLARA', 'Pendidikan Olahraga', 'FKOR','102');
+INSERT INTO `mahasiswa` VALUE('H0118030','ERNA', 'Kedokteran', 'FK','102');
+
+INSERT INTO `KKN` VALUE('101','Banyumas');
+INSERT INTO `KKN` VALUE('102','Wonogiri');
 
 CREATE TABLE `admin_sistem` (
   `id` char(10) PRIMARY KEY,
