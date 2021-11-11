@@ -15,6 +15,15 @@ CREATE TABLE `mahasiswa` (
   `fakultas` varchar(255),
   `kelompok_kkn` varchar (10)
 );
+CREATE TABLE `mahasiswa` (
+  `id` integer(10) auto increment PRIMARY KEY,
+  `NIM` char(15),
+  `nama_mahasiswa` varchar(255),
+  `tgl_lahir` varchar(255),
+  `email` varchar(255),
+  `password` varchar (225)
+  `id_univ` varchar (225)
+);
 
 CREATE TABLE `KKN` (
   `kode_kelompok` char(10) PRIMARY KEY,
