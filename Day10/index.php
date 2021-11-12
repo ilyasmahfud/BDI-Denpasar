@@ -91,10 +91,18 @@
                 <th>univ</th> -->
             </tr>
             <?php
-                $query = "SELECT * FROM mahasiswa";
+                $query = "SELECT * FROM mahasiswa where username like 'ilyas'";
                 $cek = mysqli_query($koneksi, $query);
+                $a = mysqli_fetch_array($cek);
+
+                print_r ($query);
+                echo"<BR>";
+                print_r ($a);
+                echo"<BR>";
+                echo $a['NIM'];
+                echo"<BR>";
                 print_r ($cek);
-                echo $cek;
+                // echo $cek;
 
                 if ($query = mysqli_query($koneksi, $query)) {
                     // <td>".$data['id']."</td>
@@ -103,6 +111,7 @@
                     // <td>".$data['password']."</td>
                     // <td>".$data['id_univ']."</td>
                     while ($data = mysqli_fetch_array($query)) {
+
                         echo "
                         <tr>
                             <td>".$data['NIM']."</td>
