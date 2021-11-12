@@ -91,7 +91,10 @@
                 <th>univ</th> -->
             </tr>
             <?php
-                $query = "SELECT NIM, nama_mahasiswa, tgl_lahir FROM mahasiswa";
+                $query = "SELECT * FROM mahasiswa";
+                $cek = mysqli_query($koneksi, $query);
+                print_r ($cek);
+                echo $cek;
 
                 if ($query = mysqli_query($koneksi, $query)) {
                     // <td>".$data['id']."</td>

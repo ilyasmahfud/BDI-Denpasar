@@ -28,9 +28,18 @@
 
         <?php
         $cek = count($_GET);
+        print_r($_GET);
+        if ($status == 'username_terdaftar' && !(empty($username))) {
+            echo "
+                <div class='alert alert-primary' role='alert'>
+                    username terdaftar, Selamat datang!
+                </div>
+                ";
+        }
         if ($cek > 0) {
             $status = $_GET['status'];
             $username = $_GET['username'];
+            
             # code...
             if ($status == 'username_terdaftar' && !(empty($username))) {
                 echo "
