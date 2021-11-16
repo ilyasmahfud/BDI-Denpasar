@@ -51,3 +51,27 @@ langkah
 ```
 6. jalankan perintah berikut di terminal
   npm start
+
+# CodeIgniter
+- instal Composer
+- init project
+```
+composer create-project codeigniter4/appstarter `nama-project`
+```
+- run project (masuk ke project: cd `name-project`)
+```
+php spark serve
+```
+- membuat migration
+```
+php sparck make:migration nama-migrasi
+```
+# Tugas
+1. setup env
+2. buat database 
+3. buat migrations
+4. lakukan migration
+5. buat models
+6. buat controllers
+7. buat routes
+8. buat view
