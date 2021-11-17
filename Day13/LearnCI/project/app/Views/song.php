@@ -292,8 +292,7 @@
             <div class="container">
                 <div class="row">
                     <center>
-                        <img src="../../public/assets/foto-about.jpeg" alt="foto">
-                        <img src="assets/foto-about.jpeg" alt="foto">
+                        <img src="<?= base_url('assets/foto-about.jpeg');?>" alt="foto">
                     </center>
                 </div>
             </div>
