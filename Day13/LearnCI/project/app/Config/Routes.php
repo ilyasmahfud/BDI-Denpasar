@@ -33,6 +33,9 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 
+$routes->get('/songs', 'SongController::index');
+$routes->get('/songs/add', 'SongController::addSongForm');
+$routes->add('/songs/add', 'SongController::addSong');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
