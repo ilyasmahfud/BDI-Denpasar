@@ -27,7 +27,7 @@ class SongController extends BaseController
         return View('addSong');
     }
 
-    public function addSong()
+    public function addNewSong()
     {
         $this->songs->insert([
             'title' => $this->request->getPost('title'),
@@ -39,5 +39,32 @@ class SongController extends BaseController
         ]);
          
         return redirect('songs')->with('success', 'Data Added Successfully');
+    }
+
+    public function editSongForm($id){
+        $data = $this->songs->find($id);
+        // dd($data);
+        return View('editSong', compact('data'));
+    }
+
+    public function updateSong($id){
+
+        $this->songs->update($id, [
+            'title' => $this->request->getPost('title'),
+            'duration' => $this->request->getPost('duration'),
+            'singer' => $this->request->getPost('singer'),
+            'label' => $this->request->getPost('label'),
+            'releaseDate' => $this->request->getPost('releaseDate'),
+            'album' => $this->request->getPost('album'),
+        ]);
+
+        return redirect('songs')->with('success', 'Data Updated Successfully');
+    }
+
+    public function deleteSong($id){
+
+        $this->songs->delete($id);
+
+        return redirect('songs')->with('success', 'Data deleted Successfully');
     }
 }
