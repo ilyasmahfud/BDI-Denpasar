@@ -38,7 +38,9 @@ class SongController extends BaseController
             'album' => $this->request->getPost('album'),
         ]);
          
-        return redirect('songs')->with('success', 'Data Added Successfully');
+        session()->setFlashdata('success', 'Data Created Successfully');
+
+        return redirect('songs');
     }
 
     public function editSongForm($id){
@@ -46,9 +48,9 @@ class SongController extends BaseController
         // dd($data);
         return View('editSong', compact('data'));
     }
-
+    
     public function updateSong($id){
-
+        
         $this->songs->update($id, [
             'title' => $this->request->getPost('title'),
             'duration' => $this->request->getPost('duration'),
@@ -65,6 +67,8 @@ class SongController extends BaseController
 
         $this->songs->delete($id);
 
-        return redirect('songs')->with('success', 'Data deleted Successfully');
+        session()->setFlashdata('success', 'Data Deleted Successfully');
+
+        return redirect('songs');
     }
 }

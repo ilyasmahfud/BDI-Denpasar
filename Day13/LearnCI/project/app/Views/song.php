@@ -12,11 +12,44 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+    <!-- sweet alert -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- data table -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
     <title>Song</title>
 </head>
 
 <body>
+    <?php
+    if (session()->has('success')=="Data Updated Successfully") {
+        echo "
+        <script>
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
+            
+            Toast.fire({
+                icon: 'success',
+                title: '".session()->getFlashdata('success')."'
+            })
+        </script>
+        ";
+    } 
+    ?>
     <section>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="#">Navbar</a>
@@ -45,22 +78,18 @@
 
     <div class="container">
         <div class="row">
-        <?php
-        if (!(empty($_SESSION))) {
-            print_r($_SESSION);
-        }
-        ?>
+
             <!-- USING MODALS -->
             <!-- <a href="<?= base_url('songs/add'); ?>">
                 <button type="button" class="btn btn-success">Tambah</button>
             </a> -->
-
+    
             <!-- WHITOUT MODALS -->
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tambahData">
+            <button type="button" class="btn btn-primary mb-5" data-toggle="modal" data-target="#tambahData">
             Tambah data
             </button>
-
+    
             <!-- Modal -->
             <div class="modal fade" id="tambahData" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
@@ -72,7 +101,7 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                        <form method="post" action="<?=base_url('songs/add'); ?>">
+                        <form method="post" action="<?=base_url('songs/add');?>">
                             <div class="form-group">
                                 <label for="songTitle">Judul Lagu</label>
                                 <input name="title" type="text" class="form-control" id="songTitle" aria-describedby="emailHelp" placeholder="Masukan judul lagu">
@@ -109,8 +138,10 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="row">
 
-            <table class="table">
+            <table class="table" id="tables">
                 <thead>
                     <tr>
                         <th scope="col">No</th>
@@ -258,14 +289,30 @@
                     } ?>
                 </tbody>
             </table>
-
-            <center>
-                <img src="../../public/assets/foto-about.jpeg" alt="foto">
-                <img src="assets/foto-about.jpeg" alt="foto">
-            </center>
+            <div class="container">
+                <div class="row">
+                    <center>
+                        <img src="../../public/assets/foto-about.jpeg" alt="foto">
+                        <img src="assets/foto-about.jpeg" alt="foto">
+                    </center>
+                </div>
+            </div>
         </div>
     </div>
     
+    <script>
+        var win = navigator.platform.indexOf('Win') > -1;
+        if (win && document.querySelector('#sidenav-scrollbar')) {
+            var options = {
+                damping: '0.5'
+            }
+            Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+        }
+
+        $(document).ready(function() {
+            $('#tables').DataTable();
+        });
+    </script>
 </body>
 
 </html>
