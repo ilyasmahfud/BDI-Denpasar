@@ -44,6 +44,11 @@ class Songs extends Migration
 		$this->forge->addKey('id', TRUE);
 
 		$this->forge->createTable('songs', TRUE);
+
+        $fields = [
+            'foto' => ['type' => 'TEXT']
+        ];
+        $this->forge->addColumn('songs', $fields);
     }
 
     public function down()
