@@ -1,29 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+<?= $this->extend('layouts/head'); ?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- css bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <!-- js bootstrap -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-    <!-- sweet alert -->
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-    <!-- data table -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
-
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
-    <title>Song</title>
-</head>
+<?= $this->section('content'); ?>
 
 <body>
     <?php
@@ -43,7 +20,7 @@
                 toast.addEventListener('mouseleave', Swal.resumeTimer)
                 }
             })
-            
+
             Toast.fire({
                 icon: 'success',
                 title: '" . session()->getFlashdata('success') . "'
@@ -52,31 +29,7 @@
         ";
     }
     ?>
-    <section>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Navbar</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Disabled</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </section>
-
+    <?= $this->include('layouts/navbar'); ?>
 
     <div class="container">
         <div class="row">
@@ -103,8 +56,11 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <?= form_open('songs/store'); ?>
-                            <!-- <form method="post" action="<?= base_url('songs/store'); ?>"> -->
+                            <!-- <div>
+                                <?php //form_open('songs/store'); 
+                                ?>
+                            </div> -->
+                            <form method="post" action="<?= base_url('songs/store'); ?>">
                                 <div class="form-group mb-4 mt-md-0">
                                     <div class="custom-file" align="center">
                                         <label for="foto">Foto</label>
@@ -114,12 +70,6 @@
                                     <div class="form-group mt-2">
                                         <label for="songTitle">Judul Lagu</label>
                                         <input name="title" type="text" class="form-control" id="title" aria-describedby="emailHelp" placeholder="Masukan judul lagu">
-                                        <!-- VALIDATOR -->
-                                        <?php if ($validation->getError('title')) { ?>
-                                            <div class="text-danger mt-2">
-                                                <?= $error = $validation->getError('title'); ?>
-                                            </div>
-                                        <?php } ?>
                                     </div>
                                     <div class="form-group">
                                         <label for="songDuration">Durasi Lagu</label>
@@ -147,8 +97,11 @@
                                         <button type="submit" class="btn btn-primary">Tambah Data</button>
                                     </div>
                                 </div>
-                            <!-- </form> -->
-                            <?= form_close()?>
+                            </form>
+                            <!-- <div>
+                                <?php // form_close() 
+                                ?>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -330,3 +283,5 @@
 </body>
 
 </html>
+
+<?= $this->endSection(); ?>
