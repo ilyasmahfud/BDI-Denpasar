@@ -15,7 +15,7 @@ class Song extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        'title', 'duration', 'singer', 'label', 'releaseDate', 'album'
+        'title', 'duration', 'singer', 'label', 'releaseDate', 'album', 'foto'
     ];
 
     // Dates

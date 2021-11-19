@@ -131,27 +131,40 @@ class SongController extends BaseController
             // get gambar
             $fileFoto = $this->request->getFile('foto');
             // default picture
-            if ($fileFoto->getError() == 4) {
-                $namaFoto = 'profil-default.png';
-            } else {
-                // generate nama sampul random
-                $namaFoto = $fileFoto->getRandomName();
-                // pindahkan ke folder img
-                $fileFoto->move('img');
-                // ambil nama file
-                // $namaFoto = $fileFoto->getName();
+            // if ($fileFoto->getError() == 4) {
+            //     $namaFoto = 'profil-default.png';
+            // } else {
+            //     // generate nama sampul random
+            //     $namaFoto = $fileFoto->getRandomName();
+            //     // pindahkan ke folder img
+            //     $fileFoto->move('img');
+            //     // ambil nama file
+            
+            //     // dd($namaFoto);
+            // }
+            $namaFoto = $fileFoto->getName();
+            // generate nama sampul random
+            // $namaFoto = $fileFoto->getRandomName();
+            // pindahkan ke folder img
+            $fileFoto->move('img');
 
-                // dd($namaFoto);
-            }
+            // dd($namaFoto);
+            $foto = ('img/'. $namaFoto);
+            // d($foto);
+            // d((string)$foto);
+            // dd($namaFoto);
+
+
 
             // input ke database
             $this->songs->save([
-                'foto' => $namaFoto,
+                'foto' => $foto,
                 'title' => $this->request->getPost('title'),
                 'duration' => $this->request->getPost('duration'),
                 'singer' => $this->request->getPost('singer'),
                 'label' => $this->request->getPost('label'),
                 'releaseDate' => $this->request->getPost('releaseDate'),
+                // 'album' => $namaFoto,
                 'album' => $this->request->getPost('album'),
             ]);
 
