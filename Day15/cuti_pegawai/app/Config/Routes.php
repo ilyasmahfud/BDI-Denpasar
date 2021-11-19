@@ -34,7 +34,16 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 
 // Route Jenis Cuti
-$routes->get('/jenisCuti', 'JenisCutiCOntroller::index');
+$routes->get('/jeniscuti', 'JenisCutiController::index');
+$routes->get('/level', 'LevelController::index');
+$routes->get('/pegawai', 'PegawaiController::index');
+$routes->get('/detaillevel', 'DetailLevelController::index');
+$routes->get('/user', 'UserController::index');
+
+// cuti
+$routes->get('/cuti', 'CutiController::index');
+$routes->get('/cuti/tambah', 'CutiController::formTambah');
+$routes->add('/cuti/tambah/store', 'CutiController::store');
 
 /*
  * --------------------------------------------------------------------

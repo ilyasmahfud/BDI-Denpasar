@@ -65,7 +65,6 @@
                                     <div class="custom-file" align="center">
                                         <label for="foto">Foto</label>
                                         <input name="foto" type="file" class="btn btn-primary" id="foto">
-                                        <!-- <label class="custom-file-label" for="customFile">Choose image</label> -->
                                     </div>
                                     <div class="form-group mt-2">
                                         <label for="songTitle">Judul Lagu</label>
@@ -114,6 +113,7 @@
                     <tr>
                         <th scope="col">No</th>
                         <th scope="col">Title</th>
+                        <th scope="col">Foto</th>
                         <th scope="col">Duration</th>
                         <th scope="col">Singer</th>
                         <th scope="col">Label</th>
@@ -130,6 +130,7 @@
                         <tr>
                             <td scope="col"><?php echo $i + 1; ?></td>
                             <td scope="col"><?php echo $d['title']; ?></td>
+                            <td scope="col"><img class="img-fluid w-50" src="<?php echo $d['foto']; ?>" alt=""></td>
                             <td scope="col"><?php echo $d['duration']; ?></td>
                             <td scope="col"><?php echo $d['singer']; ?></td>
                             <td scope="col"><?php echo $d['label']; ?></td>

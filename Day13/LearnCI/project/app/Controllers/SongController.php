@@ -131,25 +131,26 @@ class SongController extends BaseController
             // get gambar
             $fileFoto = $this->request->getFile('foto');
             // default picture
-            // if ($fileFoto->getError() == 4) {
-            //     $namaFoto = 'profil-default.png';
-            // } else {
-            //     // generate nama sampul random
-            //     $namaFoto = $fileFoto->getRandomName();
-            //     // pindahkan ke folder img
-            //     $fileFoto->move('img');
-            //     // ambil nama file
+            if ($fileFoto->getError() == 4) {
+                $namaFoto = 'profil-default.png';
+            } else {
+                // generate nama sampul random
+                // $namaFoto = $fileFoto->getName();
+                $namaFoto = $fileFoto->getRandomName();
+                // pindahkan ke folder img
+                $fileFoto->move('img');
+                // ambil nama file
             
-            //     // dd($namaFoto);
-            // }
-            $namaFoto = $fileFoto->getName();
-            // generate nama sampul random
-            // $namaFoto = $fileFoto->getRandomName();
-            // pindahkan ke folder img
-            $fileFoto->move('img');
+                // dd($namaFoto);
+            }
+            // // generate nama sampul random
+            // // $namaFoto = $fileFoto->getRandomName();
+            // // pindahkan ke folder img
+            // $fileFoto->move('img');
 
             // dd($namaFoto);
             $foto = ('img/'. $namaFoto);
+            // dd($foto);
             // d($foto);
             // d((string)$foto);
             // dd($namaFoto);
@@ -203,7 +204,7 @@ class SongController extends BaseController
         // filter gambarprofile-default
         if ($song['foto'] != 'profil-default.png') {
             // hapus gambar
-            unlink('img/' . $song['foto']);
+            unlink($song['foto']);
         }
 
         $this->songs->delete($id);

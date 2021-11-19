@@ -4,17 +4,17 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class JenisCuti extends Model
+class DetailLevel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'jenis_cutis';
+    protected $table            = 'detail_levels';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ["nama_jenis"];
+    protected $allowedFields    = [];
 
     // Dates
     protected $useTimestamps = false;

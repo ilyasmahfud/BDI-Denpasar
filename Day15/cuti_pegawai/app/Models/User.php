@@ -4,17 +4,19 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class JenisCuti extends Model
+class User extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'jenis_cutis';
+    protected $table            = 'users';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ["nama_jenis"];
+    protected $allowedFields    = [
+        'username', 'password', 'pegawai_id','level_active'
+    ];
 
     // Dates
     protected $useTimestamps = false;
