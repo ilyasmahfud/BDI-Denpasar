@@ -20,6 +20,7 @@ class SongController extends BaseController
         // d($data);
         // return View('song', ['data'=>$data]);
         // atauq
+        // dd($data['foto']);
         return View('song', compact('data'));
     }
 
@@ -138,9 +139,9 @@ class SongController extends BaseController
                 // $namaFoto = $fileFoto->getName();
                 $namaFoto = $fileFoto->getRandomName();
                 // pindahkan ke folder img
-                $fileFoto->move('img');
+                $fileFoto->move('img', $namaFoto);
                 // ambil nama file
-            
+
                 // dd($namaFoto);
             }
             // // generate nama sampul random
@@ -149,7 +150,7 @@ class SongController extends BaseController
             // $fileFoto->move('img');
 
             // dd($namaFoto);
-            $foto = ('img/'. $namaFoto);
+            $foto = ('img/' . $namaFoto);
             // dd($foto);
             // d($foto);
             // d((string)$foto);
@@ -202,7 +203,7 @@ class SongController extends BaseController
         // cari gambar
         $song = $this->songs->find($id);
         // filter gambarprofile-default
-        if ($song['foto'] != 'profil-default.png') {
+        if ($song['foto'] != 'img/profil-default.png') {
             // hapus gambar
             unlink($song['foto']);
         }
